@@ -1,0 +1,57 @@
+*{
+    background-color: rgb(0, 0, 0);
+
+}
+
+    .login-page {
+        /* background-color: #f7f7f7; */
+        /* padding: 0px; */
+        /* border-radius: 10px; */
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center; 
+        height: 100vh;
+        text-align: center;
+        color: white; 
+        font-size: 25px;
+        
+       
+      
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Gap between button and text */
+  }
+  
+  #loginButton{
+    font-size: 19px;
+    /* margin-top:10px; */
+    border-radius: 22px ;
+    height: 45px;
+    width: 500px;
+    background-color: rgba(173, 39, 39, 0.971);
+
+  }
+
+  #sponsorid{
+    color: black;
+    font-size: 19px;
+    margin-bottom: 15px;
+    border-radius: 22px;
+    height: 45px;
+    width: 500px;
+    background-color: white;
+
+
+  }
+
+    
+  
+  .message{
+    margin-top: 0px;
+    /* margin-bottom: 30px; */
+  }
