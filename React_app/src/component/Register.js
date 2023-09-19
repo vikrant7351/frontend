@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import Web3 from 'web3';
-import Axios from 'axios';
+
 
 
 const Registerpage = () => {
@@ -23,7 +23,7 @@ const Registerpage = () => {
         .request({ method: 'eth_accounts' })
         .then((accounts) => {
           if (accounts.length > 0) {
-            setMessage(`Connected to MetaMask with address: ${accounts[0]}`);
+            // setMessage(`Connected to MetaMask with address: ${accounts[0]}`);
           }
         })
         .catch((error) => {
@@ -52,6 +52,10 @@ const Registerpage = () => {
           
           const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
           const userAddress = accounts[0];
+          const web3 = new Web3(window.ethereum);
+          const networkId = await web3.eth.getChainId();
+
+          if(networkId === 1n){
        
           const serverResponse = await fetch('http://localhost:4000/api/store-address', {
           method: 'POST',
@@ -68,8 +72,12 @@ const Registerpage = () => {
         }
         // Referral code is valid, connect the wallet here
         toast.success('Wallet connected successfully');
-      }// setMessage('Wallet connected successfully');
-      } else {
+      }else{
+        alert('Please use Ethereum Mainnet.');
+      }
+      // setMessage('Wallet connected successfully');
+        }  
+    } else {
         // Invalid referral code, display an error message
         // setMessage(data.message);
         toast.error(`${data.message}`);
